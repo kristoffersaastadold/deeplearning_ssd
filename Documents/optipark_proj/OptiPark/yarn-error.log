@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-native-elements
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-native-firebase react-native-firestore
 
 PATH: 
   /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/kristoffersaastad/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath_target_741729140:/mnt/c/ProgramData/Oracle/Java/javapath_target_741795953:/mnt/c/Python27:/mnt/c/Python27/Scripts:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files/Intel/WiFi/bin:/mnt/c/Program Files/Common Files/Intel/WirelessCommon:/mnt/c/Program Files/Lenovo/Bluetooth Software:/mnt/c/Program Files/Lenovo/Bluetooth Software/syswow64:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs:/mnt/c/Users/Kristoffer/AppData/Local/Programs/Python/Python36:/mnt/c/Users/Kristoffer/AppData/Local/Programs/Python/Python36/Scripts:/mnt/c/Users/Kristoffer/Documents/hadoop-3.0.0/hadoop-3.0.0/bin:/mnt/c/Users/Kristoffer/Documents/spark-2.3.0-bin-hadoop2.7/bin:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/PuTTY:/mnt/c/Program Files (x86)/Yarn/bin:/mnt/c/Program Files (x86)/Elm Platform/0.18/bin:/mnt/c/Users/Kristoffer/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Kristoffer/AppData/Local/atom/bin:/mnt/c/Users/Kristoffer/AppData/Roaming/npm:/mnt/c/Users/Kristoffer/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Kristoffer/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
@@ -14,7 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, scandir '/mnt/c/Users/Kristoffer/Documents/optipark_proj/OptiPark/node_modules/react-native-screens/android/src/main/java/com/swmansion'
+  Error: https://registry.yarnpkg.com/react-native-firestore: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66255:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:129397:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:130369:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
 
 npm manifest: 
   {
@@ -29,9 +39,12 @@ npm manifest:
       "axios": "^0.18.0",
       "expo": "^32.0.0",
       "firebase": "^5.8.2",
+      "firestore": "^1.1.6",
       "react": "16.5.0",
       "react-firebase": "^2.2.8",
+      "react-firestore": "^0.10.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+      "react-native-elements": "^1.0.0",
       "react-redux": "^6.0.0",
       "redux": "^4.0.1",
       "redux-axios-middleware": "^4.0.0",
@@ -1886,6 +1899,14 @@ Lockfile:
       color-convert "^1.9.1"
       color-string "^1.5.2"
   
+  color@^3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/color/-/color-3.1.0.tgz#d8e9fb096732875774c84bf922815df0308d0ffc"
+    integrity sha512-CwyopLkuRYO5ei2EpzpIh6LqJMt6Mt+jZhO5VI5f/wJLZriXQE32/SSqzmrh+QB+AZT81Cj8yv+7zwToW8ahZg==
+    dependencies:
+      color-convert "^1.9.1"
+      color-string "^1.5.2"
+  
   colour@~0.7.1:
     version "0.7.1"
     resolved "https://registry.yarnpkg.com/colour/-/colour-0.7.1.tgz#9cb169917ec5d12c0736d3e8685746df1cadf778"
@@ -2715,7 +2736,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
     integrity sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
   
-  faye-websocket@0.11.1:
+  faye-websocket@0.11.1, faye-websocket@>=0.6.0:
     version "0.11.1"
     resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
     integrity sha1-8O/hjE9W5PQK/H4Gxxn9XuYYjzg=
@@ -2835,6 +2856,18 @@ Lockfile:
     dependencies:
       locate-path "^2.0.0"
   
+  firebase-token-generator@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/firebase-token-generator/-/firebase-token-generator-2.0.0.tgz#9767d759ec13abdc99ba115fd5ea99d8b93d1206"
+    integrity sha1-l2fXWewTq9yZuhFf1eqZ2Lk9EgY=
+  
+  firebase@^2.1.2:
+    version "2.4.2"
+    resolved "https://registry.yarnpkg.com/firebase/-/firebase-2.4.2.tgz#4e1119ec0396ca561d8a7acbff1630feac6c0a31"
+    integrity sha1-ThEZ7AOWylYdinrL/xYw/qxsCjE=
+    dependencies:
+      faye-websocket ">=0.6.0"
+  
   firebase@^5.8.2:
     version "5.8.2"
     resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.8.2.tgz#4fc6acb1d41e9aa18fa712ca68b7826b355b541a"
@@ -2848,6 +2881,15 @@ Lockfile:
       "@firebase/messaging" "0.3.10"
       "@firebase/polyfill" "0.3.5"
       "@firebase/storage" "0.2.7"
+  
+  firestore@^1.1.6:
+    version "1.1.6"
+    resolved "https://registry.yarnpkg.com/firestore/-/firestore-1.1.6.tgz#73284bce9fe9b08bdad6c18278d25b696e123cc2"
+    integrity sha1-cyhLzp/psIva1sGCeNJbaW4SPMI=
+    dependencies:
+      firebase "^2.1.2"
+      firebase-token-generator "^2.0.0"
+      lodash "^3.1.0"
   
   follow-redirects@^1.3.0:
     version "1.6.1"
@@ -3068,7 +3110,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
     integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
   
-  hoist-non-react-statics@^3.2.1:
+  hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.2.1:
     version "3.3.0"
     resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
     integrity sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
@@ -3611,6 +3653,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash.mapvalues/-/lodash.mapvalues-4.6.0.tgz#1bafa5005de9dd6f4f26668c30ca37230cc9689c"
     integrity sha1-G6+lAF3p3W9PJmaMMMo3IwzJaJw=
   
+  lodash.merge@^4.6.1:
+    version "4.6.1"
+    resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+    integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
+  
   lodash.omit@^4.5.0:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
@@ -3645,6 +3692,11 @@ Lockfile:
     version "4.1.3"
     resolved "https://registry.yarnpkg.com/lodash.zipobject/-/lodash.zipobject-4.1.3.tgz#b399f5aba8ff62a746f6979bf20b214f964dbef8"
     integrity sha1-s5n1q6j/YqdG9peb8gshT5ZNvvg=
+  
+  lodash@^3.1.0:
+    version "3.10.1"
+    resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+    integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
   
   lodash@^4.0.0, lodash@^4.16.6, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
     version "4.17.11"
@@ -4399,6 +4451,11 @@ Lockfile:
     dependencies:
       mimic-fn "^1.0.0"
   
+  opencollective-postinstall@^2.0.0:
+    version "2.0.2"
+    resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
+    integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
+  
   opn@^3.0.2:
     version "3.0.3"
     resolved "https://registry.yarnpkg.com/opn/-/opn-3.0.3.tgz#b6d99e7399f78d65c3baaffef1fb288e9b85243a"
@@ -4752,6 +4809,13 @@ Lockfile:
       prop-types "^15.5.8"
       shallowequal "^1.0.2"
   
+  react-firestore@^0.10.3:
+    version "0.10.3"
+    resolved "https://registry.yarnpkg.com/react-firestore/-/react-firestore-0.10.3.tgz#85da2b8429fe1eac1d235a898f3f52383a17ea1c"
+    integrity sha512-e3Hud61fqAWcPYPIvfBLnnaGImk9ZvOhrCp4zpc2cAXV5Fuia3Mi+TDZ+fkdvGVtDZO73MYjCVK64raiXgu8Dw==
+    dependencies:
+      hoist-non-react-statics "^2.3.1"
+  
   react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1:
     version "16.8.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
@@ -4761,6 +4825,19 @@ Lockfile:
     version "2.2.5"
     resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
     integrity sha1-QHTdY7SXPmOX2c5Q6XtXx3pRjp0=
+  
+  react-native-elements@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.0.0.tgz#95bc194f61ec4658d8dbd977524f8c4fd3ada136"
+    integrity sha512-m5kzFCOIEyoY5qTYn6c2n9AYodn1Ol4tVNEaQ5wVXwaDDNyafshqXQ3QmYUWW8yfogMmCdLSi0KfQmYQNElEtA==
+    dependencies:
+      color "^3.1.0"
+      hoist-non-react-statics "^3.1.0"
+      lodash.merge "^4.6.1"
+      opencollective-postinstall "^2.0.0"
+      prop-types "^15.5.8"
+      react-native-ratings "^6.3.0"
+      react-native-status-bar-height "^2.2.0"
   
   react-native-gesture-handler@~1.0.14:
     version "1.0.15"
@@ -4774,6 +4851,14 @@ Lockfile:
   react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
     version "0.22.1"
     resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
+  
+  react-native-ratings@^6.3.0:
+    version "6.3.0"
+    resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.3.0.tgz#becda9379616776a81d9d90bfc95ea40b76286fb"
+    integrity sha512-vjzsTM4L3J3n0X9fJMFSJ3ZUqbPp2ExZtgg/Ycst9SqwiHCOouEwEpEcLF+KzYp3MgL62ZACIKSUyfWIIdBafA==
+    dependencies:
+      lodash "^4.17.4"
+      prop-types "^15.5.10"
   
   react-native-reanimated@1.0.0-alpha.11:
     version "1.0.0-alpha.11"
@@ -4791,6 +4876,11 @@ Lockfile:
     version "1.0.0-alpha.22"
     resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
     integrity sha512-kSyAt0AeVU6N7ZonfV6dP6iZF8B7Bce+tk3eujXhzBGsLg0VSLnU7uE9VqJF0xdQrHR91ZjGgVMieo/8df9KTA==
+  
+  react-native-status-bar-height@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.2.0.tgz#3bd51de134660efc5f5ad136ca573c7d5790f7ed"
+    integrity sha512-4WJpyZirzeMHyZiyNEy4LnSPOtuLRVy3+28Rhz7ffrjCVcc5RFcC0HVjFnkwfuhcTyXIDtzPG6canJkXzbTtBA==
   
   react-native-svg@8.0.10:
     version "8.0.10"
